@@ -1,0 +1,501 @@
+@import url('./body-set-up.css');
+
+/* ========= HTML and Body=========== */
+html,body{
+    max-width: 100vw;
+    min-height: 100vh !important;
+    max-height: max-content;
+    overflow-y: auto;
+}
+
+body{
+    font-family: 'Kodchasan';
+    background-color: var(--yellow);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+
+/* ======== Out Focus Background ============== */
+.out-focus-background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 6;
+    display: none;
+}
+
+.out-focus{
+    display: block !important;
+}
+
+/* ========= Body Content============ */
+.body-content{
+    min-height: 70vh;
+    height: 70vh;
+    max-height: max-content;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* ============== Chart Container =============== */
+.chart-container{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    /* ======== Chart ============ */
+    .chart-inner-container{
+        width: 100%;
+        height: 90%;
+        padding: 10% 5%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+    }
+
+    .chart{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow-y: visible;
+    }
+
+    .chart::after{
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 80%;
+        top: 0px;
+        left: 0px;
+        border-left: 3px solid white;
+    }
+
+    .chart::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0px;
+        border-top: 3px solid white;
+        bottom: 19%;
+        left: 0px;
+        z-index: 5;
+    }
+
+    /* =========== Axis setting ============= */
+
+    .axis-end{
+        position: absolute;
+        color: white;
+        transform: scale(1.5,1);
+        font-size: 0.8rem;
+        z-index: 5;
+        font-size: 16px;
+    }
+
+    .y-end{
+        top: 0px;
+        left: 1.5px;
+        transform-origin: center left;
+        transform: rotate(-90deg) scale(1.5,1);
+    }
+
+    .x-end{
+        bottom: calc(20% - 8px);
+        right: -0%;
+    }
+
+    .axis-label{
+        font-size: 0.8rem;
+        position: absolute;
+        color: var(--darkgreen);
+        z-index: 5;
+    }
+
+    .axis-label::first-letter{
+        text-transform: uppercase;
+    }
+
+    .y-label{
+        top: -5%;
+        left: 3%;
+    }
+
+    .x-label{
+        bottom: 10%;
+        right: -5%;
+    }
+
+    /* ============== blood pressure data Container ================== */
+    .data-container{
+        max-width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .value-container{
+        width: 100%;
+        min-height: 80%;
+        display: flex;
+        align-items: flex-end;      
+    }
+
+    .data{
+        height: 50%;
+        min-width: 6vw;
+        background-color: var(--red);
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        margin: 0px 3%;
+        position: relative;
+    }
+
+    .data-value{
+        color: var(--green);
+        font-size: 0.8rem;
+        position: absolute;
+        top: -20%;
+        left: 0%;
+        text-align: center;
+        opacity: 0;
+        transition: 200ms ease-in-out;
+    }
+
+    .show-value{
+        opacity: 1;
+    }
+
+    /* ================== Date Container ===================== */
+    .date-container{
+        height: 20%;
+        display: flex;
+        align-items: flex-start;
+        padding: 2% 0px;
+    }
+
+    .date-container span{
+        display: inline-block;
+        color: white;
+        font-size: 0.6rem;
+        transform: rotate(45deg);
+        transform-origin: center left;
+        margin: 0px 3%;
+        min-width: 6vw;
+        width: 6vw;
+    }
+
+    /* ========== Mode Switch================ */
+    .mode-switch{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .switch-container{
+        display: flex;
+        align-items: center;
+        margin: 0px 3%;
+        cursor: pointer;
+    }
+
+    .switch-container span{
+        text-transform: capitalize;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .switch-container:nth-of-type(1) span{
+        color: var(--red);
+    }
+
+    .switch-container:nth-of-type(2) span{
+        color: var(--blue);
+    }
+
+    .radio-icon{
+        margin-right: 3%;
+        font-size: 0.8rem;
+        min-width: 15px;
+        min-height: 15px;
+        border: 1px solid var(--darkgreen);
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .inner-icon{
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        background-color: var(--darkgreen);
+        border-radius: 50%;
+        transform: scale(0.4,0.4);
+        transition: transform 300ms ease-in;
+    }
+
+    .selected{
+        transform: scale(1.5,1.5);
+
+    }
+
+    /* ============ Report Container=============*/
+    .report-container{
+        position: absolute;
+        height: 80%;
+        width: 100%;
+        background-color: white;
+        z-index: 7;
+        bottom: 0px;
+        left: 0px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        transform: translateY(85%);
+        transition: transform 500ms ease-in-out;
+    }
+
+    .show-report{
+        transform: translateY(0%);
+    }
+
+    .report-title{
+        height: 15%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 3%;
+        color: var(--darkgreen);
+    }
+
+    .report-title i{
+        font-size: 0.8rem;
+    }
+
+    .report-title span{
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-left: 5%;
+    }
+
+            /* ======== Report detail============ */
+            .report-detail{
+                height: 85%;
+                width: 100%;
+                padding: 1% 2%;
+            }
+
+            .rp-sub-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 40%;
+                width: 100%;
+                position: relative;
+            }
+
+            .rp-sub-container::after{
+                position: absolute;
+                content: "";
+                width: 70%;
+                height: 0px;
+                border-top: 4px dashed var(--yellow);
+                bottom: 0px;
+                left: 15%;
+                border-radius: 50px;
+            }
+
+            .report-row{
+                width: 100%;
+                height: auto;
+                margin: 2% 0px;
+                font-size: 0.8rem;
+            }
+
+            .sys-empha{
+                color: var(--red);
+            }
+
+            .dia-empha{
+                color: var(--blue);
+            }
+
+
+            .report-result{
+                width: 100%;
+                height: 20%;
+                display: flex;
+                align-items: center;
+                text-transform: capitalize;
+            }
+
+            .report-result .description{
+                font-size: 1.5rem;
+                color: var(--darkgreen);
+                font-weight: bold;
+            }
+
+            .report-result .value{
+                font-size: 1.3rem;
+                padding-left: 3%;
+                color: var(--green);
+            }
+@media screen and (max-width: 1000px) and (orientation: landscape){
+    .body-content{
+        height: 200vh !important;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .chart-inner-container{
+        width: 90%;
+        padding: 5%;
+        padding-bottom: 0%;
+        align-self: flex-start;
+    }
+
+    .report-container{
+        width: 90%;
+        left: 5%;
+    }
+
+    .report-detail{
+        padding: 0px 5%;
+    }
+}
+
+
+@media screen and (max-width: 1199px) and (orientation: landscape){
+    body{
+        height: auto;
+    }
+    
+    .body-content{
+        height: 170vh;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .body-content{
+        height: 80vh;
+    }
+
+    /* ============ Background Decor ============ */
+    .background-decor{
+        height: 35vw;
+        width: 35vw;
+        border: 2px solid white;
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        border-radius: 50%;
+        transform: translate(45%,-45%);
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 7%;
+    }
+
+    .inner-decor{
+        width: 100%;
+        height: 100%;
+        background-color: var(--green);
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .inner-decor::after{
+        position: absolute;
+        content: "";
+        width: 120%;
+        height: 120%;
+        border: 2px solid white;
+        top: -10%;
+        left: -10%;
+        border-radius: 50%;
+    }
+
+    .background-decor:nth-of-type(4){
+        bottom: 0%;
+        top: auto;
+        left: 0%;
+        transform: translate(-45%,45%);
+    }
+
+    /* ============= Body Content ================*/
+    .body-content{
+        flex-direction: row;
+    }
+
+    /* ======== Axis=========== */
+
+
+    /* ====== Chart Container =============== */
+    .chart-container{
+        width: 50%;
+        height: 60%;
+    }
+
+    .chart-inner-container{
+        width: 80%;
+        align-self: center;
+    }
+
+
+    .value-container,.date-container{
+        padding: 0px 3%
+    }
+
+    .data, .date-container span{
+        min-width: 1.5vw;
+        width: 1.5vw;
+    }
+    .data,.date-container span{
+        margin: 0px 2%;
+    }
+
+
+        /* ========== Report Container =============== */
+
+    .report-container{
+        position: relative;
+        height: 80%;
+        width: 30%;
+        align-self: center;
+        border-radius: 20px;
+        box-shadow: 
+        10px 10px 15px rgb(0, 0, 0, 0.05),
+        15px 15px 20px rgb(0, 0, 0, 0.045),
+        20px 20px 25px rgb(0, 0, 0, 0.040),
+        25px 25px 30px  rgb(0, 0, 0, 0.035),
+        30px 30px 35px  rgb(0, 0, 0, 0.030);
+        transform: none;
+    }
+
+    .report-row{
+        font-size: 1rem;
+    }
+
+}
+
+@media screen and (min-width: 1600px) {
+}

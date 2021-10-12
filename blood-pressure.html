@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Monitor</title>
+    <link rel="icon" href="./Photos/Logo/logo.png"/>
+    <link rel="stylesheet" href="./CSS/blood-pressure.css" />
+    <link rel="stylesheet" href="./CSS/navigation.css"/>
+</head>
+<body>
+    <div class="nav-and-title-container">
+        <nav class="navigation">
+            <i class="fas fa-ellipsis-h menu-icon"></i>
+            <div class="mobile-nav">
+                <ul>
+                    <li><a href="">
+                        <i class="fas fa-tint"></i>
+                    </a></li>
+
+                    <span class="divider"></span>
+
+                    <li><a href="statistics.html">
+                        <i class="far fa-chart-bar"></i>
+                    </a></li>
+
+                    <span class="divider"></span>
+
+                    <li><a href="">
+                        <i class="fas fa-user-circle"></i>
+                    </a></li>
+                </ul>
+            </div>
+
+            <div class="desktop-nav">
+                <ul>
+                    <li id="home-button"><a href="./main-console.html">
+                        <i class="fas fa-home"></i>
+                    </a></li>
+
+                    <li><a href="">
+                        B.P. monitor
+                    </a></li>
+
+                    <li><a href="statistics.html">
+                        statistics
+                    </a></li>
+
+                    <li><a href="">
+                        account settings
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="title">
+            <p>
+                <span>blood</span>
+                <span id="emp">pressure</span>
+                <span>monitor</span>    
+            </p>
+        </div>
+    </div>
+
+
+    <div class="body-content">
+        <div class="form-container">
+            <form class="input-entry">
+                <fieldset>
+                    <div class="input-row">
+                        <label for="sys-input">Systolic (mmHg)</label>
+                        <div class="inner-container">
+                            <input type="text" id="sys-input" name="sys-input"/>
+                            <span class="invalid-alert"><i class="fas fa-exclamation"></i> invalid input</span>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <label for="dia-input">Diastolic (mmHg)</label>
+                        <div class="inner-container">
+                            <input type="text" id="dia-input" name="dia-input"/>
+                            <span class="invalid-alert"><i class="fas fa-exclamation"></i> invalid input</span>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <label for="pulse-input">Pulse (bmp)</label>
+                        <div class="inner-container">
+                            <input type="text" id="pulse-input" name="pulse-input"/>
+                            <span class="invalid-alert"><i class="fas fa-exclamation"></i> invalid input</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <button type="button" id="enter-button">enter</button>
+            </form>
+
+            <div class="record-container">
+                <div class="record">
+                    <div class="record-title">
+                        <i class="fas fa-circle"></i>
+                        <span>record</span>
+                    </div>
+
+                    <div class="column-name">
+                        <ul>
+                            <li>sys</li>
+
+                            <li>dia</li>
+
+                            <li>pulse</li>
+
+                            <li>result</li>
+
+                            <li>date</li>
+                        </ul>
+                    </div>
+
+                    <div class="record-detail">
+                        <div class="record-row">
+                            <span>100</span>
+                            <span>60</span>
+                            <span>70</span>
+                            <span>normal</span>
+                            <span>05/11/2021</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="measurement-container">
+            <div class="measurement">
+                <span class="node"></span>
+                <span class="node normal"></span>
+                <span class="ruler"></span>
+                <span class="node"></span>
+                <i class="fas fa-play fa-fw indicator">
+                    <span class="indicator-label">current average</span>
+                </i>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="out-focus-background"></div>
+
+    <div class="background-decor">
+        <div class="inner-decor"></div>
+    </div>
+
+    <div class="background-decor">
+        <div class="inner-decor"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e23e09cf11.js" crossorigin="anonymous"></script>
+    <script src="./JS/navigation.js"></script>
+    <script src="./JS/blood-pressure.js"></script>
+</body>
+</html>

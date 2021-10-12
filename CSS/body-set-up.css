@@ -1,0 +1,66 @@
+@font-face{
+    src: url("../Fonts/PumpkinStory-vmKrM.ttf");
+    font-family: 'Pumpkin';
+}
+
+@font-face{
+    src: url('../Fonts/Kodchasan-Regular.ttf');
+    font-family: 'Kodchasan';
+}
+
+@font-face{
+    src: url('../Fonts/Kodchasan-Bold.ttf');
+    font-family: 'Kodchasan';
+    font-weight: bold;
+}
+
+@font-face{
+    src: url('../Fonts/Kodchasan-Medium.ttf');
+    font-family: 'Kodchasan';
+    font-weight: 500;
+}
+
+:root{
+    /* =========== Color Scheme=============== */
+    --red: #ef476f;
+    --yellow: #ffd166;
+    --green: #06d6a0;
+    --blue: #118ab2;
+    --darkgreen: #073b4c;
+    --darkblue: #455e7c;
+
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body,html{
+
+    font-size: 5vw;
+
+}
+
+@media screen and (min-width: 768px) {
+    body,html{
+        font-size: 4vw;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    body,html{
+        font-size: 1.3vw;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    body,html{
+        font-size: 1.5vw;
+    }
+}
+
+
+
