@@ -176,6 +176,7 @@ let sendDataToServer = (data, destination) =>{
 
     $('#register-submit-button').on('click',function(e){
         let registerData = $('.register-form').serialize();
+        let checkAccExisted = '../PHP/checkAccountExisted.php';
         let registerServer = '../PHP/register.php';
         e.preventDefault();
         if(registerValidationCheck()){
@@ -183,14 +184,35 @@ let sendDataToServer = (data, destination) =>{
                 display: 'none',
             })
 
-            console.log('pass');
+            // check if user has already existed
+            sendDataToServer(registerData,checkAccExisted).then(function(result){
+                console.log(result)
 
-            sendDataToServer(registerData, registerServer).then(function(result){
-                console.log(result);
+                if(result==='available'){
+                    $('#register-email').siblings('.invalidAlert').text('invalid input')
+                    $('#register-email').siblings('.invalidAlert').css({
+                        display: 'none'
+                    })
+                    
+                    sendDataToServer(registerData, registerServer).then(function(result2){
+                        console.log(result2);
+                    })
+                    .catch(function(error2){
+                        console.log(error2);
+                    })
+                }
+
+                else{
+                    $('#register-email').siblings('.invalidAlert').text('already existed')
+                    $('#register-email').siblings('.invalidAlert').css({
+                        display: 'block'
+                    })                }
             })
             .catch(function(error){
                 console.log(error);
             })
+
+            
 
         }
 

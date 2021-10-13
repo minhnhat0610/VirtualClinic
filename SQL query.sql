@@ -9,6 +9,8 @@ create table User(
     DOB datetime,
     Phone bigint
 );
+select *
+from User;
 
 insert into User(Email,Password,FirstName,LastName,DOB,Phone)
 values('corydang0610@gmail.com','asd','Cory','Dang','1998-10-06',123);

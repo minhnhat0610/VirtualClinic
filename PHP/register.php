@@ -14,13 +14,12 @@
         $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $username, $DBpassword);        // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully";
+        echo "\n";
 
        
 
         
         try{
-            // Check if user has already existed
-
             // Create new user record
             $insertNewUser = $conn -> prepare("INSERT INTO User(Email,Password,FirstName,LastName,DOB,Phone)
             values(:email,:password,:firstname,:lastname,:DOB,:phone)");
@@ -34,10 +33,34 @@
 
             $insertNewUser->execute();
             echo "Successfully create new user";
+            echo "\n";
 
+            // Get UserID
+            $getUserID = $conn -> prepare("SELECT UserID from User
+             where Email = :email");
+            $getUserID ->bindParam(':email',$email);
+            $getUserID->execute();
+            $UserID = $getUserID->fetch(PDO::FETCH_ASSOC);
 
-            // Creat new Blood Pressure Record table for new user
+            // Create new Blood Pressure Record table for new user
+            $tableName = "User". $UserID['UserID'] . 'BP_Record';
 
+            echo $tableName;
+            $preparedSql = "CREATE TABLE $tableName(
+                RecordID int primary key auto_increment,
+                Sys smallint,
+                Dia smallint,
+                Pulse smallint, 
+                Result tinytext,
+                Date datetime,
+                UserID int,
+                foreign key (UserID) references User(UserID)
+                )";
+
+            $createRecordTable = $conn -> prepare($preparedSql);
+
+            $createRecordTable->execute();
+            echo "Successfully create new record table";
         }
 
         catch(exception $e){
