@@ -15,6 +15,13 @@
             <i class="fas fa-ellipsis-h menu-icon"></i>
             <div class="mobile-nav">
                 <ul>
+
+                    <li id="home-btn-mobile"><a href="main-console.html">
+                        <i class="fas fa-home"></i>
+                    </a></li>
+
+                    <span class="divider"></span>
+
                     <li><a href="">
                         <i class="fas fa-tint"></i>
                     </a></li>
@@ -53,7 +60,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="title">
+        <div class="title title-hide">
             <p>
                 <span>blood</span>
                 <span id="emp">pressure</span>
@@ -65,7 +72,7 @@
 
     <div class="body-content">
         <div class="form-container">
-            <form class="input-entry">
+            <form class="input-entry input-entry-hide">
                 <fieldset>
                     <div class="input-row">
                         <label for="sys-input">Systolic (mmHg)</label>
@@ -92,10 +99,10 @@
                     </div>
                 </fieldset>
 
-                <button type="button" id="enter-button">enter</button>
+                <button type="submit" id="enter-button">enter</button>
             </form>
 
-            <div class="record-container">
+            <div class="record-container record-container-hide">
                 <div class="record">
                     <div class="record-title">
                         <i class="fas fa-circle"></i>
@@ -118,11 +125,7 @@
 
                     <div class="record-detail">
                         <div class="record-row">
-                            <span>100</span>
-                            <span>60</span>
-                            <span>70</span>
-                            <span>normal</span>
-                            <span>05/11/2021</span>
+
                         </div>
 
                     </div>
@@ -130,7 +133,7 @@
             </div>
         </div>
 
-        <div class="measurement-container">
+        <div class="measurement-container measurement-container-hide">
             <div class="measurement">
                 <span class="node"></span>
                 <span class="node normal"></span>
@@ -154,9 +157,18 @@
         <div class="inner-decor"></div>
     </div>
 
+    <div class="sign-in-again-alert hide">
+        <div class="inner-alert">
+            <i class="fas fa-exclamation"></i>
+            <p class="alert">please sign-in to countinue</p>
+            <button class="sign-in-redirect"><a href="./index.html">Sign in</a></button>
+        </div>
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e23e09cf11.js" crossorigin="anonymous"></script>
     <script src="./JS/navigation.js"></script>
-    <script src="./JS/blood-pressure.js"></script>
+    <script type="module" src="./JS/blood-pressure.js"></script>
 </body>
 </html>

@@ -43,9 +43,75 @@ body,html{
 
 }
 
+/* ================ Sign Again Alert =============== */
+.sign-in-again-alert{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide{
+    display: none;
+}
+
+.inner-alert{
+    width: 80%;
+    height: 40%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.inner-alert i{
+    font-size: 3rem;
+    color: var(--red);
+}
+
+.alert{
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 2%;
+    color: var(--darkgreen);
+}
+
+.sign-in-redirect{
+    background-color: var(--blue);
+    border: none;
+    padding: 2% 10%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.sign-in-redirect a{
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: white;
+    font-family: 'Kodchasan';
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
 @media screen and (min-width: 768px) {
     body,html{
         font-size: 4vw;
+    }
+
+    .inner-alert{
+        width: 70%;
+        height: 50%;
     }
 
 }
@@ -54,6 +120,12 @@ body,html{
     body,html{
         font-size: 1.3vw;
     }
+
+    .inner-alert{
+        width: 30%;
+        height: 40%;
+    }
+
 }
 
 @media screen and (min-width: 1600px) {

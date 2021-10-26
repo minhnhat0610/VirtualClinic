@@ -1,7 +1,51 @@
+import {sendDataToServer} from "./server.js";
+import {checkLogin} from './checkLoginInfor.js';
+import {generateBPResult} from "./generateBPResult.js"
 $(document).ready(function(){
     const screenSize = $('body').width();
     const breakPoint = 1200;
-    // ============ Click to show record container ============
+    const writeRecordSever = '../PHP/writeRecord.php';
+    const LoadRecordServer = '../PHP/loadRecord.php';
+
+    // =================== Write Input into record ================
+    let writeInput = (values) => {
+        const numberOfColumn = 5;
+
+        // add new record row
+        $('.record-detail').prepend("<div class=\"record-row\"></div>")
+        
+        //add new span
+        for(let i = 0; i < numberOfColumn; i++){
+            $('.record-row').first().append('<span></span>');
+            $('.record-row').first().children().eq(i).text(values[i]);
+        }
+    }
+
+    // ================ Call back function after successfully check Login ===========   
+    let BPFinishLoading = () =>{
+        // ===== Load Record from Server =========
+        sendDataToServer("",LoadRecordServer).then(function(response){
+            JSON.parse(response).forEach(record => {
+                writeInput(record);
+            });
+    
+            // Calculate the Average BP
+            let result = calculateAverage();
+            repositionIndicator(result[0]);
+    
+            //========= reveal body content=========
+            $('.title').toggleClass('title-hide');
+            $('.record-container').toggleClass('record-container-hide');
+            $('.measurement-container').toggleClass('measurement-container-hide');
+            $('.input-entry').toggleClass('input-entry-hide')
+        })
+    }
+
+    checkLogin(BPFinishLoading);
+    
+// ===========================================================================================================
+
+    // ============ Click to show record container on mobile ============
     $(document).on('click',function(e){
         if(screenSize < breakPoint){
             let container = $(e.target).parents('.record-container');
@@ -55,36 +99,6 @@ $(document).ready(function(){
         return arrayResult;
     }
 
-    // ================= Generate Blood Pressure result =================
-
-    let generateBPResult = (sysAverage, diaAverage) => {
-
-        if(sysAverage < 90 && diaAverage < 60){
-            return 'low';
-        }
-
-        else if(sysAverage >= 90 && sysAverage < 120 && diaAverage >= 60 && diaAverage <80){
-            return 'normal';
-        }
-
-        else if(sysAverage >= 120 && sysAverage < 130 && diaAverage >= 60 && diaAverage <80){
-            return 'elevated';
-        }
-
-        else if((sysAverage >= 130 && sysAverage < 140) || (diaAverage >= 80 && diaAverage <90)){
-            return 'high (S.1)';
-        }
-
-        else if((sysAverage >= 140 && sysAverage < 180) || diaAverage >= 90 && diaAverage <120){
-            return 'high (S.2)';
-        }
-
-        else if((sysAverage >= 180) || diaAverage >= 120){
-            return 'hyper crisis';
-        }
-
-    }
-
     //====================== Re-position Indicator =======================
     let repositionIndicator = (currentAverage) => {
         const highlimit = 210;
@@ -122,19 +136,6 @@ $(document).ready(function(){
     }
 
 
-    // =================== Write Input into record ================
-    let writeInput = (values) => {
-        const numberOfColumn = 5;
-
-        // add new record row
-        $('.record-detail').append("<div class=\"record-row\"></div>")
-        
-        //add new span
-        for(let i = 0; i < numberOfColumn; i++){
-            $('.record-row').last().append('<span></span>');
-            $('.record-row').last().children().eq(i).text(values[i]);
-        }
-    }
     
 
     // ===================== Enter blood pressure input ================
@@ -142,7 +143,6 @@ $(document).ready(function(){
         if(pattern.test(input)){
             return true
         }
-
         else return false
     }
 
@@ -164,19 +164,46 @@ $(document).ready(function(){
        return pass;
        
     }
-    $('#enter-button').on('click',function(){
+
+    let serializeData = (arrayResult) => {
+        let length = arrayResult.length;
+        let keyArray = ['sys','dia','pulse','result'];
+        let returnedData = "";
+        for(let i=0;i<length-1;i++){
+            returnedData += keyArray[i] + "=" + arrayResult[i] + "&";
+        }
+
+        let d = new Date()
+        let date = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
+
+        return returnedData + "date=" + date;
+    }
+
+
+    $('#enter-button').on('click',function(e){
+        e.preventDefault();
        let validityPass = checkFormValidity();
     //    Re-calculate current average blood pressure
        if(validityPass){
         //  create record Values
         let recordValues = createValues();
-        // write values to records
-            writeInput(recordValues);
+        let recordData = serializeData(recordValues);
+        sendDataToServer(recordData,writeRecordSever).then(function(response){
+            console.log(response);
+            if(parseInt(response)){
+                // display values on Records Container
+                writeInput(recordValues);
 
-           let result = calculateAverage();
-           console.log(generateBPResult(result[0],result[1]));
+                let result = calculateAverage();
+                repositionIndicator(result[0]);
+            }
 
-           repositionIndicator(result[0]);
+            else{
+                alert('Fail to input record. Please try again!');
+            }
+            
+        })
+        
 
        }
     })

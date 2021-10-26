@@ -17,6 +17,12 @@
             <i class="fas fa-ellipsis-h menu-icon"></i>
             <div class="mobile-nav">
                 <ul>
+                    <li id="home-btn-mobile"><a href="main-console.html">
+                        <i class="fas fa-home"></i>
+                    </a></li>
+
+                    <span class="divider"></span>
+
                     <li><a href="blood-pressure.html">
                         <i class="fas fa-tint"></i>
                     </a></li>
@@ -55,7 +61,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="title">
+        <div class="title title-hide">
             <p>
                 <span>your</span>
                 <span id="emp">statistics</span>
@@ -64,82 +70,38 @@
     </div>
 
     <div class="body-content">
-        <div class="chart-container">
+        <div class="chart-container chart-hide">
             <div class="chart-inner-container">
-                <div class="chart">
+                <div class="chart ">
                     <i class="fas fa-play axis-end y-end"></i>
                     <i class="fas fa-play axis-end x-end"></i>
                     <p class="axis-label y-label">sys (mmHg)</p>
                     <p class="axis-label x-label">date</p>
 
-                    <div class="data-container">
-                        <div class="value-container">
+                    <div class="data-container" id="sys-data">
+                        <div class="value-container ">
+                            <div class="value-inner-container data-hide">
 
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-
-                                <div class="data">
-                                    <p class="data-value">105</p>
-                                </div>
-        
+                            </div>
 
                         </div>
 
 
                         <div class="date-container">
-                            <span>5/8/2021</span>
-    
-                            <span>5/8/2021</span>
-    
-                            <span>5/8/2021</span>
+                        </div>
 
-                            <span>5/8/2021</span>
-    
-                            <span>5/8/2021</span>
+                    </div>
 
-                            <span>5/8/2021</span>
-    
-                            <span>5/8/2021</span>
-    
-                            <span>5/8/2021</span>
+                    <div class="data-container" id="dia-data">
+                        <div class="value-container ">
+                            <div class="value-inner-container data-hide">
 
-                            <span>5/8/2021</span>
-    
-                            <span>5/8/2021</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="date-container">
                         </div>
 
                     </div>
@@ -164,7 +126,7 @@
             </div>
         </div>
 
-        <div class="report-container">
+        <div class="report-container report-hide">
             <div class="report-title">
                 <i class="fas fa-circle"></i>
                 <span>report</span>
@@ -174,17 +136,17 @@
                 <div class="rp-sub-container">
                     <div class="report-row">
                         <span class="description">Average <span class="sys-empha">Sys</span> (mmHg):</span>
-                        <span class="value">20</span>
+                        <span class="value" id="average-sys">20</span>
                     </div>
 
                     <div class="report-row">
                         <span class="description">Highest <span class="sys-empha">Sys</span> (mmHg):</span>
-                        <span class="value">20</span>
+                        <span class="value" id="max-sys">20</span>
                     </div>
 
                     <div class="report-row">
                         <span class="description">Lowest <span class="sys-empha">Sys</span> (mmHg):</span>
-                        <span class="value">20</span>
+                        <span class="value" id="min-sys">20</span>
                     </div>
     
                 </div>
@@ -193,17 +155,17 @@
                 <div class="rp-sub-container">
                     <div class="report-row">
                         <span class="description">Average <span class="dia-empha">Dia</span> (mmHg):</span>
-                        <span class="value">20</span>
+                        <span class="value" id="average-dia">20</span>
                     </div>
 
                     <div class="report-row">
                         <span class="description">Highest <span class="dia-empha">Dia</span> (mmHg):</span>
-                        <span class="value">20</span>
+                        <span class="value" id="max-dia">20</span>
                     </div>
 
                     <div class="report-row">
                         <span class="description">Lowest <span class="dia-empha">Dia</span> (mmHg):</span>
-                        <span class="value">20</span>
+                        <span class="value" id="min-dia">20</span>
                     </div>
     
                 </div>
@@ -211,7 +173,7 @@
                 <div class="report-result">
                     <div class="report-row">
                         <span class="description">result:</span>
-                        <span class="value">normal</span>
+                        <span class="value" id="bp-status"></span>
 
                     </div>
                 </div>
@@ -229,11 +191,17 @@
         <div class="inner-decor"></div>
     </div>
 
-
+    <div class="sign-in-again-alert hide">
+        <div class="inner-alert">
+            <i class="fas fa-exclamation"></i>
+            <p class="alert">please sign-in to countinue</p>
+            <button class="sign-in-redirect"><a href="./index.html">Sign in</a></button>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e23e09cf11.js" crossorigin="anonymous"></script>
     <script src="./JS/navigation.js"></script>
-    <script src="./JS/statistics.js"></script>
+    <script type="module" src="./JS/statistics.js"></script>
 </body>
 </html>
