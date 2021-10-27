@@ -1,5 +1,6 @@
 # Virtual Clinic
 ## Introduction
+Link to project: http://ec2-3-137-194-135.us-east-2.compute.amazonaws.com/
 This is an studying project for Javascript Class with Code Louisville (2021)
 Virtual Clinic is a an online web-app to monitor blood pressure. Users can store their statistics information into personal account secured by their credential (using email and password). The app can be suite for monitoring blood pressure at home as personal use or healthcare professional. 
 
@@ -13,7 +14,6 @@ Virtual Clinic is a an online web-app to monitor blood pressure. Users can store
 
  - Provide an account log-in system which allow every user to store and manage their private information easily. All information will be stored at
  - Allow user to input and review blood pressure statistics including Systolic (mmHg), Diastolic (mmHg), Pulse (bpm). The app will calculate and display blood pressure status base on user's input data
- - Generate blood pressure chart with two data view mode (Systolic & Diastolic) and analytic report. This allow user to visualize data pattern and relationship between data which could be used fore further blood pressure studying. 
  - Allow users to manage their personal account including the ability to change password or personal information
 
 ## Project Reflection
@@ -30,8 +30,11 @@ Virtual Clinic is a an online web-app to monitor blood pressure. Users can store
 #### Login Page
 ![Login Page](https://i.postimg.cc/zfr58w6B/Project7-image1.png)
 
+#### Main Console
+![Main Console](https://i.postimg.cc/W1nZGS5y/Screenshot-2021-10-26-213735.png)
+
 #### Blood Pressure Monitor Page
-![Project7-image2.png](https://i.postimg.cc/4dcSdjcR/Project7-image2.png)
+![BP Monitor page](https://i.postimg.cc/4dcSdjcR/Project7-image2.png)
 
 #### Statistics Page
-![Project7-image3.png](https://i.postimg.cc/76SKD0vx/Project7-image3.png)
+![Stastics Page](https://i.postimg.cc/76SKD0vx/Project7-image3.png)
