@@ -1,13 +1,13 @@
 # Virtual Clinic
 ## Introduction
-Link to project: http://ec2-3-137-194-135.us-east-2.compute.amazonaws.com/
-This is an studying project for Javascript Class with Code Louisville (2021)
+Link to project: http://ec2-3-137-194-135.us-east-2.compute.amazonaws.com/ \
+This is an studying project for Javascript Class with Code Louisville (2021) \
 Virtual Clinic is a an online web-app to monitor blood pressure. Users can store their statistics information into personal account secured by their credential (using email and password). The app can be suite for monitoring blood pressure at home as personal use or healthcare professional. 
 
 ## Technology Stack
-**Front end:** HTML, CSS, Javascript, Jquery
-**Back end:** PHP
-**Database:** MySQL
+**Front end:** HTML, CSS, Javascript, Jquery \
+**Back end:** PHP \
+**Database:** MySQL \
 **Cloud & Web Hosting:** AWS, GitHub
 
 ## App Function
