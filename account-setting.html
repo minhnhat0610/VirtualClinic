@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <link rel="icon" href="./Photos/Logo/logo.png"/>
+    <link rel="stylesheet" href="./CSS/navigation.css"/>
+    <link rel="stylesheet" href="./CSS/account-setting.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+</head>
+<body>
+    <div class="nav-and-title-container">
+        <nav class="navigation">
+            <i class="fas fa-ellipsis-h menu-icon"></i>
+            <div class="mobile-nav">
+                <ul>
+
+                    <li id="home-btn-mobile"><a href="main-console.html">
+                        <i class="fas fa-home"></i>
+                    </a></li>
+
+                    <span class="divider"></span>
+
+                    <li><a href="blood-pressure.html">
+                        <i class="fas fa-tint"></i>
+                    </a></li>
+
+                    <span class="divider"></span>
+
+                    <li><a href="statistics.html">
+                        <i class="far fa-chart-bar"></i>
+                    </a></li>
+
+                    <span class="divider"></span>
+
+                    <li><a href="">
+                        <i class="fas fa-user-circle"></i>
+                    </a></li>
+                </ul>
+            </div>
+
+            <div class="desktop-nav">
+                <ul>
+                    <li id="home-button"><a href="./main-console.html">
+                        <i class="fas fa-home"></i>
+                    </a></li>
+
+                    <li><a href="blood-pressure.html">
+                        B.P. monitor
+                    </a></li>
+
+                    <li><a href="statistics.html">
+                        statistics
+                    </a></li>
+
+                    <li><a href="">
+                        account settings
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="title title-hide">
+            <div class="title-icon-wrapper">
+                <i class="fas fa-user-circle"></i>
+                <p class="page-title">account-settinngs-</p>
+            </div>
+            <p id="acc-name"></p>
+        </div>
+    </div>
+
+    <div class="body-content">
+        <div class="account-infor-container account-infor-container-hide">
+            <div class="desktop-gutter">
+                <i class="fas fa-circle"></i>
+            </div>
+            <form class="account-infor">
+                <i class="fas fa-pen" id="edit-button"></i>
+                <div class="input-row">
+                    <label for="first-name">first name: </label>
+                    <input type="text" id="first-name" name="first-name" readonly/>
+                </div>
+
+                <div class="input-row">
+                    <label for="last-name">last name: </label>
+                    <input type="text" id="last-name" name="last-name" readonly/>
+                </div>
+
+                <div class="input-row">
+                    <label for="email">email: </label>
+                    <input type="email" id="email" name="email" readonly/>
+                </div>
+
+                <div class="input-row">
+                    <label for="dob">DOB: </label>
+                    <input type="text" id="dob" name="dob" readonly/>
+                </div>
+
+                <div class="input-row">
+                    <label for="phone-number">phone: </label>
+                    <input type="text" id="phone-number" name="phone-number" readonly/>
+                </div>
+            </form>
+
+            <div class="edit-confirm">
+                <div class="inner-wrapper">
+                    <p>do you want to confirm these changes?</p>
+                    <div class="confirm-box">
+                        <button id="yes-confirm">yes</button>
+                        <button id="cancel-confirm">cancel</button>
+                    </div>    
+                </div>
+            </div>
+
+        </div>
+        <div class="pass-change-container pass-change-container-hide">
+            <div class="pass-change-toggle">
+                <p>change password</p>
+            </div>
+            <form class="pass-change-form">
+                <div class="input-row">
+                    <label for="current-pass">current password: </label>
+                    <input class="input-edit" type="password" id="current-pass" name="current-pass"/>
+                </div>
+
+                <div class="input-row">
+                    <label for="new-pass-1">new password: </label>
+                    <input class="input-edit" type="password" id="new-pass-1" name="new-pass-1" />
+                </div>
+                <div class="input-row">
+                    <label for="new-pass-2">re-enter password: </label>
+                    <input class="input-edit" type="password" id="new-pass-2" name="new-pass-2" />
+                </div>
+
+                <div class="pass-change-btn-container">
+                    <div class="pass-change-loader hide"></div>
+                    <button type="button" id="pass-change-btn">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="out-focus-background"></div>
+
+    <div class="sign-in-again-alert hide">
+        <div class="inner-alert">
+            <i class="fas fa-exclamation"></i>
+            <p class="alert">please sign-in to countinue</p>
+            <button class="sign-in-redirect"><a href="./index.html">Sign in</a></button>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e23e09cf11.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./JS/navigation.js"></script>
+    <script type="module" src="./JS/account-setting.js"></script>
+
+    
+</body>
+</html>

@@ -1,8 +1,18 @@
 # Virtual Clinic
 ## Introduction
-Link to project: http://ec2-3-137-194-135.us-east-2.compute.amazonaws.com/ \
 This is an studying project for Javascript Class with Code Louisville (2021) \
 Virtual Clinic is a an online web-app to monitor blood pressure. Users can store their statistics information into personal account secured by their credential (using email and password). The app can be suite for monitoring blood pressure at home as personal use or healthcare professional. 
+
+## Usage
+- Link to project: http://ec2-3-137-194-135.us-east-2.compute.amazonaws.com/
+- ***Testing account:***
+Email: testacc1@test.com
+Password: test123
+- ***Main Console***: use to navigate through different app's features
+- ***Blood Pressure Monitor***: user may enter their blood pressure record through this page
+- ***Statistics***: display blood pressure chart and generate average report
+- ***Account settings***: manage account information
+
 
 ## Technology Stack
 **Front end:** HTML, CSS, Javascript, Jquery \
@@ -12,8 +22,9 @@ Virtual Clinic is a an online web-app to monitor blood pressure. Users can store
 
 ## App Function
 
- - Provide an account log-in system which allow every user to store and manage their private information easily. All information will be stored at
- - Allow user to input and review blood pressure statistics including Systolic (mmHg), Diastolic (mmHg), Pulse (bpm). The app will calculate and display blood pressure status base on user's input data
+ - Provide an account log-in system which allow every user to store and manage their private information easily. All information will be stored in cloud database.
+ - Allow user to enter and review blood pressure statistics including Systolic (mmHg), Diastolic (mmHg), Pulse (bpm). The app will calculate and display blood pressure result base on user's input data.
+ - Generate report including statistic chart and average blood pressure report.
  - Allow users to manage their personal account including the ability to change password or personal information
 
 ## Project Reflection
@@ -38,3 +49,6 @@ Virtual Clinic is a an online web-app to monitor blood pressure. Users can store
 
 #### Statistics Page
 ![Stastics Page](https://i.postimg.cc/76SKD0vx/Project7-image3.png)
+
+#### Account Settings Page
+![Account Settings](https://i.postimg.cc/4yhCwmrv/test.png)

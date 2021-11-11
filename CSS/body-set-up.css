@@ -103,6 +103,45 @@ body,html{
     font-weight: bold;
 }
 
+        /* ========= Flat Picker styling=========== */
+        .flatpickr-calendar{
+            border: 0px !important;
+            background-color: transparent !important;
+        }
+        .flatpickr-calendar  *{
+            font-family: 'Kodchasan' !important;
+            color: white !important;
+        }
+
+        .flatpickr-months{
+            color: var(--red) !important;
+            background-color: var(--yellow);
+        }
+
+        .flatpickr-innerContainer{
+            background-color: var(--blue);
+
+        }
+
+        .flatpickr-monthDropdown-months, .cur-year{
+            color: var(--red) !important;
+            font-weight: bold !important;
+        }
+
+        .flatpickr-monthDropdown-months> option{
+            color: var(--darkgreen) !important;
+        }
+
+        .flatpickr-calendar.arrowBottom:after{
+            border-top-color: var(--yellow);
+        }
+
+        .flatpickr-day.selected, .flatpickr-day:hover{
+            background: var(--red) !important;
+            border: none !important;
+        }
+
+
 
 @media screen and (min-width: 768px) {
     body,html{

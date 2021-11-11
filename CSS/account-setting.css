@@ -1,0 +1,624 @@
+@import url('./body-set-up.css');
+
+/* ========= HTML and Body=========== */
+html,body{
+    max-width: 100vw;
+    min-height: 100vh !important;
+    max-height: max-content;
+    overflow-y: auto;
+}
+
+body{
+    font-family: 'Kodchasan';
+    background-color: var(--green);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    height: 100vh;
+}
+
+/* ======== Out Focus Background ============== */
+.out-focus-background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 4;
+    display: none;
+}
+
+.out-focus{
+    display: block !important;
+}
+
+/* ================ Finish loading ============ */
+.title-hide{
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.account-infor-container-hide{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.pass-change-container-hide{
+    transform: translateY(150%) !important;
+    opacity: 0;
+}
+/* ============= Navigation and Page Title =============== */
+
+.title{
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding: 0% 2% !important;
+    transition: 500ms ease-in-out;
+}
+
+.title-icon-wrapper{
+    width: 15vh;
+    height: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 10%;
+    margin-top: auto;
+}
+
+.title-icon-wrapper i {
+    font-size: 10vh;
+    color: var(--green);
+}
+
+.title-icon-wrapper .page-title{
+    position: absolute;
+    top: -25%;
+    left: -25%;
+    text-transform: capitalize;
+    height: 150%;
+    width: 150%;
+    animation: spin 20s linear infinite;
+}
+
+.page-title span{
+    font-size: 0.8rem !important;
+    color: var(--darkgreen) !important;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform-origin: 0px calc(15vh * 1.5 / 2);
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg)
+    }
+
+    100%{
+        transform: rotate(360deg)
+
+    }
+}
+
+
+#acc-name{
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-top: auto;
+    background-color: var(--blue);
+    padding: 0px 2%;
+    border-radius: 500px;
+    text-align: center;
+}
+
+
+/* ========= Body Content ============ */
+.body-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/*  ================= Account Information Container =========== */
+.account-infor-container{
+    margin-top: 5%;
+    width: 90%;
+    height: 80%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    transition: 500ms ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+    .desktop-gutter{
+        display: none;
+    }
+
+    .account-infor{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: relative;
+    }
+
+    #edit-button{
+        position: absolute;
+        right: 3%;
+        top: 3%;
+        font-size: 1.7rem;
+        color: var(--yellow);
+        cursor: pointer;
+    }
+
+    .fa-check{
+        color: var(--green) !important;
+    }
+
+    .input-row{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input-row label{
+        font-size: 1.3rem;
+        color: var(--darkgreen);
+        font-weight: 500;
+        text-transform: capitalize;
+        margin-bottom: 0%;
+        margin-left: 3%;
+        width: max-content;
+    }
+
+    .input-row input{
+        text-transform: capitalize;
+        font-size: 1rem;
+        font-family: 'Kodchasan';
+        margin-left: 5%;
+        padding-left: 5%;
+        width: 70%;
+        border: none;
+        color: var(--darkgreen);
+    }
+
+    .input-edit{
+        border-bottom: 2px solid var(--yellow) !important;
+    }
+
+    .input-invalid{
+        border-radius: 100px;
+        border: 2px solid var(--red) !important;
+    }
+
+    .input-row input:focus{
+        border-radius: 100px;
+        background-color: var(--yellow);
+        outline: none;
+        color: white;
+    }
+
+    .edit-confirm{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 5%;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .edit-confirm-show{
+        opacity: 1;
+        z-index: 2;
+    }
+
+
+
+    .edit-confirm .inner-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        padding: 10% 0px;
+        border-radius: 20px;
+        position: relative;
+        border: 3px solid var(--yellow);
+        transition: 500ms ease-in-out;
+        transform: scale(0,0);
+        opacity: 0;
+    }
+
+    .inner-wrapper-show{
+        transform: scale(1,1) !important;
+        opacity: 1 !important;
+    }
+
+
+
+    .edit-confirm p{
+        color: var(--blue);
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        text-align: center;
+        margin-bottom: 10%;
+    }
+
+    .confirm-box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .confirm-box button{
+        padding: 2% 5%;
+        font-size: 1.2rem;
+        color: white;
+        text-transform: capitalize;
+        font-family: 'Kodchasan';
+        font-weight: bold;
+        width: 40%;
+        border: none;
+        border-radius: 200px;
+        margin: 0px 3%;
+        cursor: pointer;
+    }
+
+
+    #yes-confirm{
+        background-color: var(--green);
+    }
+
+    #cancel-confirm{
+        background-color: var(--red);
+    }
+
+
+/* =========== Password Change Container ============ */
+.pass-change-container{
+    height: 80%;
+    width: 95%;
+    margin-top: auto;
+    position: absolute;
+    z-index: 5;
+    bottom: 0px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 3px solid var(--yellow);
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 0%;
+    transform: translateY(85%);
+    transition: 500ms ease-in-out;
+}
+
+.show-pass-change{
+    transform: translate(0%,0%) !important;
+}
+
+    .pass-change-toggle{
+        width: 75%;
+        height: 13%;
+        background-color: var(--blue);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .pass-change-toggle p{
+        width: max-content;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2% 5%;
+        color: var(--darkgreen);
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .pass-change-form{
+        width: 90%;
+        height: 85%;
+        background-color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .pass-change-form label, .pass-change-form input{
+        font-size: 1rem;
+    }
+
+
+    .pass-change-btn-container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #pass-change-btn{
+        background-color: var(--green);
+        border: none;
+        width: min-content;
+        padding: 2% 5%;
+        border-radius: 15px;
+        font-size: 1.5rem;
+        color: white;
+        text-transform: capitalize;
+        font-family: 'Kodchasan';
+        font-weight: bold;
+        align-self: center;
+        cursor: pointer;
+    }
+
+    .pass-change-loader{
+        width: 3rem;
+        height: 3rem;
+        border: 3px solid white;
+        border-left: 4px solid var(--green);
+        border-right: 4px solid var(--green);
+        border-radius: 50%;
+        position: relative;
+        animation: spin 1s infinite ease-in-out forwards;
+
+    }
+
+    @keyframes spin {
+        0%{
+            transform: rotate(0deg);
+        }
+
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+
+    .pass-change-loader::after{
+        position: absolute;
+        width: 60%;
+        height: 60%;
+        content: "";
+        background-color: var(--green);
+        border-radius: 50%;
+        top: 20%;
+        left: 20%;
+        animation: faded 0.5s infinite ease-in-out forwards alternate;
+
+    }
+
+    @keyframes faded {
+        0%{
+            opacity: 0;
+        }
+
+        100%{
+            opacity: 1;
+        }
+    }
+
+    .hide{
+        display: none !important;
+    }
+
+
+@media screen and (max-width: 1199px) and (orientation: landscape){
+    body,.body-content{
+        height: auto;
+    }
+
+    .title-icon-wrapper{
+        width: 35vh;
+        height: 35vh;
+    }
+
+    .title-icon-wrapper i{
+        font-size: 25vh;
+    }
+
+    .page-title span{
+        transform-origin: 0px calc(35vh * 1.5 / 2);
+    }
+
+    .account-infor-container{
+        margin-bottom: 20%;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+   .account-infor-container{
+       width: 85%;
+       border-radius: 20px;
+   }
+
+   .pass-change-container{
+       width: 80%;
+       border-width: 5px;
+   }
+
+   
+
+}
+
+@media screen and (min-width: 1200px) {
+    .nav-and-title-container{
+        height: 45vh!important;
+        max-height: max-content !important;
+    }
+    .navigation{
+        min-height: 30%;
+    }
+
+    .title{
+        height: 70%;
+        flex-direction: row;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        padding:0px !important;
+    }
+
+    .title-icon-wrapper{
+        margin-top: 0px;
+        margin-left: 5%;
+
+    }
+
+    #acc-name{
+        width: max-content;
+        margin-left: 5%;
+        font-size: 3rem;
+        align-self: flex-end;
+        margin-top: 0px;
+    }
+
+    /* =========== Body Content ========== */
+    .body-content{
+        flex-direction: row;
+    }
+
+    /* ============== Account Infor Container ============= */
+    .account-infor-container{
+        margin-top: 0px;
+        width: 65%;
+        margin-left: auto;
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+        border-radius:40px;
+    }
+
+    .desktop-gutter{
+        display: block;
+        width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .desktop-gutter i{
+        font-size: 2.5rem;
+        color: var(--green);
+    }
+
+    .account-infor{
+        width: 75%;
+        height: 100%;
+    }
+
+    .input-row{
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .input-row label{
+        width: 30%;
+    }
+
+    .input-row input{
+        width: 40%;
+        margin-left: 0%;
+        padding-left: 2%;
+    }
+
+    .edit-confirm{
+        justify-content: flex-end;
+        padding: 0px;
+        padding-left: 35%;
+        padding-right: 10%;
+    }
+
+    .edit-confirm .inner-wrapper{
+        width: 100%;
+        height: 70%;
+        padding: 10%;
+    }
+
+    /* ============ Pass Change Container =============== */
+
+    .pass-change-container-hide{
+        transform: translateX(100%) !important;
+    }    
+
+    .pass-change-container{
+        height: 80%;
+        width: 25%;
+        margin-top: 0px;
+        margin-left: auto;
+        position: relative;
+        flex-direction: row;
+        padding-top: 0px;
+        padding-left: 2%;
+        border: 5px solid var(--yellow);
+        border-right: none;
+        border-radius: 0px;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        transform: translateX(75%);
+    }
+
+    .pass-change-toggle{
+        width: 20%;
+        height: 80%;
+        border-radius: 0px;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+
+    .pass-change-toggle p{
+        transform: rotate(-90deg);
+        white-space: nowrap;
+        padding: 2% 30%;
+        border-radius: 50px;
+        font-size: 1rem;
+    }
+
+    .pass-change-form{
+        height: 90%;
+        border-radius: 0px;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+
+    }
+
+    .pass-change-form .input-row{
+        flex-direction: column;
+        padding: 0px 5%;
+    }
+
+    .pass-change-form label, .pass-change-form input{
+        width: 100%;
+    }
+}
+
+
+
+@media screen and (min-width: 1600px) {
+}

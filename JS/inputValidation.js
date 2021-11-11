@@ -1,3 +1,7 @@
+const emailPattern = /\S+@\S+\.\S+/;
+const textPattern = /[A-Za-z]+$/;
+const numberonly = /[0-9]+$/;
+const textandnumber = /^\S/;
 
     let validation = (testedObject, pattern) => {
         let textInput = testedObject.val();
@@ -22,11 +26,6 @@
     }
 
 let registerValidationCheck = () => {
-    const emailPattern = /\S+@\S+\.\S+/;
-    const textPattern = /[A-Za-z]+$/;
-    const numberonly = /[0-9]+$/;
-    const textandnumber = /^\S/;
-
 
     let registerEmail = $('#register-email');
     let password = $('#register-password');
@@ -96,4 +95,17 @@ let registerValidationCheck = () => {
 
 }
 
-export {registerValidationCheck}
+let checkValidity = (testedObject, pattern) => {
+    let textInput = testedObject.val();
+    let regex = new RegExp(pattern);
+
+    if(!regex.test(textInput)){
+        return false;
+    }
+
+    else{
+        return true;
+    } 
+}
+
+export {registerValidationCheck, checkValidity}
