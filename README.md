@@ -36,7 +36,19 @@ Password: test123
     * Organize code into separated module
     * Create CRUD actions and communicate to cloud database with PDO (PHP)
     *  Store user login data to browser using session
-    
+
+## Project Requirements
+ -  Retrieve data from an cloud database and display data in your app (such as with fetch() or with AJAX)
+ - Create a form and save the values (on click of Submit button) to an cloud database
+ - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
+- Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
+- Implement a log that records errors, invalid inputs, successful event and display it to client
+- Implement a regular expression (regex) to ensure a field either a phone number or an email address is always stored and displayed in the same format
+- Build a conversion tool that converts user input to another type and displays it
+- Calculate and display data based on an external factor
+- Visualize data in a graph, chart, or other visual representation of data
+- Create a web server with at least one route and connect to it from your application using PHP
+
 ## Project Screenshots
 #### Login Page
 ![Login Page](https://i.postimg.cc/zfr58w6B/Project7-image1.png)
