@@ -3,6 +3,14 @@
 This is an studying project for Javascript Class with Code Louisville (2021) \
 Virtual Clinic is a an online web-app to monitor blood pressure. Users can store their statistics information into personal account secured by their credential (using email and password). The app can be suite for monitoring blood pressure at home as personal use or healthcare professional. 
 
+## Project Installation
+**PHP**, **MySQL** **XAMPP** need to be installed to test the project on local machine
+- Visit [PHP Download](https://www.php.net/manual/en/install.windows.tools.php) to install PHP
+- Vist [XAMPP Home page](https://www.apachefriends.org/download.html) to download and install XAMPP
+- Visit [MySQL Installer](https://dev.mysql.com/downloads/installer/) to download and install MySQL
+- After installing XAMPP, please insert project directory after ***Document Root*** and ***<Directory*** inside Apache config (httpd.conf)
+- Turn on Apeche and MySQL sever to run the project
+
 ## Usage
 - Link to project: http://ec2-3-137-194-135.us-east-2.compute.amazonaws.com/
 - ***Testing account:***
