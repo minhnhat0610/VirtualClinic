@@ -9,7 +9,6 @@ $(document).ready(function(){
         // Load account information from server
         sendDataToServer("",getAccountInforServer).then(async response => {
             let result = await JSON.parse(response);
-            console.log(result);
             $('#acc-name').text(`${result[0]['FirstName']} ${result[0]['LastName']}`);
             $('.account-infor input').each((i, input) => {
                 input.value = result[0][i];

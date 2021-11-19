@@ -1,11 +1,16 @@
 <?php
 session_start();
- $serverName = 'virtualclinic.cf0ojcdk8osb.us-east-2.rds.amazonaws.com';
- $username = 'virtualclinic';
- $DBpassword = 'nhat06101998';
- $dbName = "virtualclinic";
+require_once('../vendor/autoload.php');
 
- $userID = $_SESSION['UserID'];
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/..", "dbKeys.env");
+$dotenv->load();
+
+$serverName = $_ENV['SEVERNAME'];
+$username = $_ENV['USERNAME'];;
+$DBpassword = $_ENV['DB_SECRET_KEY'];;
+$dbName = $_ENV['DB_NAME'];
+
+$userID = $_SESSION['UserID'];
 
 $sys = $_POST['sys'];
 $dia = $_POST['dia'];

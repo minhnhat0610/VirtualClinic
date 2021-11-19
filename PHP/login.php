@@ -1,12 +1,17 @@
 <?php
+require_once('../vendor/autoload.php');
+
 session_start();
 $_SESSION['email'] = "";
 $_SESSION['password'] = "";
 
-$serverName = 'virtualclinic.cf0ojcdk8osb.us-east-2.rds.amazonaws.com';
-$username = 'virtualclinic';
-$DBpassword = 'nhat06101998';
-$dbName = "virtualclinic";
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/..", "dbKeys.env");
+$dotenv->load();
+
+$serverName = $_ENV['SEVERNAME'];
+$username = $_ENV['USERNAME'];;
+$DBpassword = $_ENV['DB_SECRET_KEY'];;
+$dbName = $_ENV['DB_NAME'];;
 
 $email = $_POST['email'];
 $password = $_POST['current-password'];

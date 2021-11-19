@@ -1,10 +1,13 @@
 <?php
-$serverName = 'virtualclinic.cf0ojcdk8osb.us-east-2.rds.amazonaws.com';
-$username = 'virtualclinic';
-$DBpassword = 'nhat06101998';
-$dbName = "virtualclinic";
+require_once('../vendor/autoload.php');
 
-$email = $_POST['register-email'];
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/..", "dbKeys.env");
+$dotenv->load();
+
+$serverName = $_ENV['SEVERNAME'];
+$username = $_ENV['USERNAME'];;
+$DBpassword = $_ENV['DB_SECRET_KEY'];;
+$dbName = $_ENV['DB_NAME'];
 
 try{
     $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $username, $DBpassword);        // set the PDO error mode to exception
